@@ -34,4 +34,9 @@ PercyScript.run(async (page, percySnapshot) => {
   // ensure the page has loaded before capturing a snapshot
   await page.waitFor(".auth0-lock-social-buttons-container");
   await percySnapshot("login");
+
+  await page.goto("https://localhost:4200/");
+  // ensure the page has loaded before capturing a snapshot
+  await page.waitFor(".hero-main-image");
+  await percySnapshot("homepage again");
 });
